@@ -33,7 +33,12 @@
 * <span style="background-color: orange; color: black;">ตอนนี้พยายามทำเรื่อง ให้ colab notebook ไปอ่าน dataset จาก google map shared drive (แต่เดิมใช้ My Drive รู้สึกว่าข้อมูลกระจัดกระจาย) แต่ยังไม่ work ครับ</span>
 
 
-* <span style="background-color: orange; color: black;">กำลังเตรียม dataset แบบสั้น กระชับในแต่ละ aspect อยู่ แต่ยังไม่แน่ใจว่ากระชับขนาดไหนถึงเรียกว่าดี / จำนวนที่ต้องใช้ (chatgpt ยังยืนยันที่ประมาณ 1k - 10k) </span> 
+* <span style="background-color: orange; color: black;">กำลังเตรียม dataset แบบสั้น กระชับในแต่ละ aspect อยู่ แต่ยังไม่แน่ใจว่ากระชับขนาดไหนถึงเรียกว่าดี / จำนวนที่ต้องใช้ (chatgpt ยังยืนยันที่ประมาณ 1k - 10k) แล้วก็โดนเตือนมากลายๆว่า ABSA ใช้ data train เยอะกว่าประมาณ 3 เท่า </span> 
+
+
+![ABSA Caveat](https://github.com/kengarakawa/absa-journey/blob/main/absa-caveat.png?raw=true)
+
+
 ## Option B
 base model ใช้ scb/typhoon หรือ Pathumma เป็น LLM และใช้ความสามารถของ generative ai ในการ วิเคราะห์ ABSA ผ่าน prompt
 
