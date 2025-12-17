@@ -22,6 +22,7 @@
 ### Cons:
 * wangchanberta เป็น model ที่ออกมาสักพักแล้ว ความสามารถในการเรียนรู้ภาษาจะค่่อนข้าง"เก่า" ไม่สามารถเข้าใจ slang / trendy phrase ต่างๆ เมื่อเทียบกับ LLM ใหม่ๆ 
 * <span style="background-color: orange; color: black;">เท่าที่ลองหาข้อมูลดู model มีความจำเพาะกับภาษาค่อนข้างสูง เมื่อเจอ review ในภาษาที่ไม่รู้จัก ผลลัพธ์การทำนายแทบไม่ต่างจากการเดาสุ่ม Gemini แนะนำให้ switch ไปใช้ **PhayaThaiBERT** ซึ่งออกมาแก้ปัญหานี้โดยตรง เลยอยากขอคำแนะนำ ว่าควร train เฉพาะภาษาไทย หรือ (อย่างน้อย)ควรรวมภาษาอังกฤษเข้าไปด้วย </span>
+![ABSA Caveat](https://github.com/kengarakawa/absa-journey/blob/main/wangchanberta-english-fail.jpg?raw=true)
 
  ปัจจุบัน ได้เขียน code สำหรับ train / save & load model / prediction คร่าวๆได้แล้ว แต่ยังพบปัญหาว่า accuracy ยังแย่อยู่ กำลังแก้ปัญหาโดย
  * การใช้ cirriculum learning คือ แทนที่จะ train ด้วย review text จริง ในการเรียนรู้รอบแรกๆ ให้เริ่มจาก review ที่สั้น กระชับ ไม่ซับซ้อน  เมื่อเห็นว่า model เริ่มจับ pattern ได้ จึงเอา review ที่มีความซับซ้อนมา train เพิ่มเติม ทำให้ model ไม่ overfit อยู่ที่ review ที่สั้นกระชับ
@@ -29,6 +30,8 @@
  * version นี้ได้ balance จำนวน "nm" ออก โดยจะมีจำนวน "nm" ไม่เกิน จำนวน aspect ที่เจอจริง เช่น
  "อาหารอร่อย ถูกกว่าที่คิด" จะ label ว่า TASTE = pos, PRICE = pos และ random aspect ที่เหลือ (SERVICE/ ATMOSPHERE / TRANSPORT) มาไม่เกิน 2 ตัวและให้ label ว่าเป็น nm  ... โดยรวมจะมี label = nm ไม่เกิน 25% ของ dataset 
  * <span style="background-color: orange; color: black;">ตอนนี้เจอปัญหาว่า chatgpt แนะนำว่าถ้าจะเพิ่ม accuracy ให้เอา "nm"  ออก แล้วใส่เป็น head ใหม่แทน (ทั้งๆที่เคยแนะนำว่าให้เอามารวมกันได้)</span>
+![ABSA Caveat](https://github.com/kengarakawa/absa-journey/blob/main/nm-accuracy-issue.png?raw=true)
+
 
 * <span style="background-color: orange; color: black;">ตอนนี้พยายามทำเรื่อง ให้ colab notebook ไปอ่าน dataset จาก google map shared drive (แต่เดิมใช้ My Drive รู้สึกว่าข้อมูลกระจัดกระจาย) แต่ยังไม่ work ครับ</span>
 
